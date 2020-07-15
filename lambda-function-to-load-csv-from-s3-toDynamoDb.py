@@ -16,7 +16,7 @@ def lambda_handler(event, context):
     try:            
         s3=boto3.client('s3')            
         dyndb = boto3.client('dynamodb', region_name=region)
-        confile= s3.get_object(Bucket='netflix-ak-27062015', Key='netflix.csv')
+        confile= s3.get_object(Bucket='<BUCKET NAME>', Key='<FILE NAME IN S3>')
         recList = confile['Body'].read().decode().split('\n') 
         firstrecord=True
         csv_reader = csv.reader(recList, delimiter=',', quotechar='"')
